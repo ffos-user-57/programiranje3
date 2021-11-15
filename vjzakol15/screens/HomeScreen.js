@@ -1,9 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import CommentItem from "../components/CommentItem";
+import CommentInput from "../components/ComponentInput";
 
 export function HomeScreen({ route, navigation }) {
   function handleSettingsPress() {
     navigation.navigate("SecondScreen");
+  }
+
+  const [comment,setComment] = useState([]);
+  const addCommentHandler = (commentTitle) => {
+    setComment((currentComment) => [
+      ...currentComment, {id: Math.random().toString(), value: commentTitle}
+    ]);
   }
 
   return (
@@ -27,8 +37,24 @@ export function HomeScreen({ route, navigation }) {
         onPress={handleSettingsPress}
     />*/}
 
+      <View>
+        <CommentInput 
+        onAddComment={addCommentHandler}  
+        />
+        <FlatList
+          keyExtractor={(item,index) => item.id}
+          data={comment}
+          renderItem={
+            (itemData) => (
+              <CommentItem 
+                id={itemData.item.id}
+                title={itemData.item.value}
+              />
+            )
 
-    
+          }
+        />
+      </View>
 
     </View>
   );
