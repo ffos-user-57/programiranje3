@@ -27,6 +27,9 @@ export function HomeScreen({ route, navigation }) {
         onPress={handleSettingsPress}
     />*/}
 
+
+    
+
     </View>
   );
 }
