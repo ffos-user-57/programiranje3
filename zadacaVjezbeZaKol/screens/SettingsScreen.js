@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 export function SettingsScreen({ route, navigation }) {
+  //"ne podrzava left i right na mobilnoj verziji, vec treba stavit  space-between ili flex-end/flex-start - za alignitems i justifycontent" -Dunja
   function handleHomePress() {
     navigation.navigate("Home");
   }
