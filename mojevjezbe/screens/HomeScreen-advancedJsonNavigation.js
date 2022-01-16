@@ -50,8 +50,8 @@ export function HomeScreen({ route, navigation }) {
   }, [])
 
 
-
-
+//https://medium.com/@karnwal.peeyush/virtualizedlist-missing-keys-for-items-react-native-f4a399ab60b7
+//ak ne ucitava na mobu
 
   return (
     <View style={styles.screen}>
